@@ -71,36 +71,37 @@ $("#add-customer").click(function () {
 
     var validate = true;
     if (customerAddress.trim().length == 0 || customerId.trim().length == 0 || customerName.trim().length == 0) {
-        alert("You have empty fields!");
         $("#customer-id").addClass("invalid");
         $("#customer-name").addClass("invalid");
         $("#customer-address").addClass("invalid");
         validate = false;
+        console.log("empty fields");
+        alert("You have empty fields!");
         return;
     }
-    if (!customerName.match("^[A-Za-z][A-Za-z. ]+$")) {
-        alert("invalid customer name");
-        $("#customer-name").addClass("invalid");
-        $("#customer-name").select();
-        validate = false;
-        return;
-    }
-    if (!validate) {
-        return;
-    }
-    customers.push({
-        id: customerId,
-        name: customerName,
-        address: customerAddress
-    });
-    // loadCustomers(0);
-
-    if (customers.length <= 5) {
-        loadCustomers(0);
-    }
-    intializePagination();
-    alert("Mission successfull");
-    $("#customer-id,#customer-name, #customer-address ").val("");
+    // if (!customerName.match("^[A-Za-z][A-Za-z. ]+$")) {
+    //     alert("invalid customer name");
+    //     $("#customer-name").addClass("invalid");
+    //     $("#customer-name").select();
+    //     validate = false;
+    //     return;
+    // }
+    // if (!validate) {
+    //     return;
+    // }
+    // customers.push({
+    //     id: customerId,
+    //     name: customerName,
+    //     address: customerAddress
+    // });
+    // // loadCustomers(0);
+    //
+    // if (customers.length <= 5) {
+    //     loadCustomers(0);
+    // }
+    // intializePagination();
+    // alert("Mission successfull");
+    // $("#customer-id,#customer-name, #customer-address ").val("");
 
 });
 

@@ -82,8 +82,15 @@ $("#add-item").click(function () {
         validate = false;
         return;
     }
-    if (!customerName.match("^[A-Za-z][A-Za-z. ]+$")) {
-        alert("invalid customer name");
+    if (!qty.match("^[0-9]+$")) {
+        alert("invalid qty");
+        $("#item-code").addClass("invalid");
+        $("#item-code").select();
+        validate = false;
+        return;
+    }
+    if (!unitPrice.match("^[0-9]+$")) {
+        alert("invalid qty");
         $("#customer-name").addClass("invalid");
         $("#customer-name").select();
         validate = false;
@@ -92,43 +99,44 @@ $("#add-item").click(function () {
     if (!validate) {
         return;
     }
-    customers.push({
-        id: customerId,
-        name: customerName,
-        address: customerAddress
+    items.push({
+        code: itemCode,
+        description: itemDescription,
+        qtyOnHand: qty,
+        unitPrice: unitPrice
     });
     // loadCustomers(0);
 
-    if (customers.length <= 5) {
-        loadCustomers(0);
+    if (items.length <= 5) {
+        loadItems(0);
     }
     intializePagination();
     alert("Mission successfull");
-    $("#customer-id,#customer-name, #customer-address ").val("");
+    $("#item-code,#item-description,#qty,#unitPrice").val("");
 
 });
 
 $("#btn-clear").click(function () {
-    $("#customer-id,#customer-name, #customer-address ").val("");
-    $("#customer-id , #customer-name , #customer-address").removeClass("invalid");
+    $("#item-code,#item-description,#qty,#unitPrice ").val("");
+    $("#item-code,#item-description,#qty,#unitPrice").removeClass("invalid");
 });
 
-$("#tbl-students tbody").on('click','tr td i ',function () {
+$("#tbl-items tbody").on('click','tr td i ',function () {
     // console.log($(this).parent().parent().children().first().text());
     var id = $(this).parent().parent().children().first().text();
-    for (var i=0;i<customers.length;i++){
+    for (var i=0;i<items.length;i++){
         if(id==customers[i].id){
             console.log("======================");
             console.log(id);
-            console.log(customers[i].id);
-            customers.splice(i,1);
+            console.log(items[i].code);
+            items.splice(i,1);
         }
     }
 
     // customers.splice(customers.indexOf('C002'),1);
     intializePagination()
-    if(customers.length<=5){
-        loadCustomers(0);
+    if(items.length<=5){
+        loadItems(0);
     }
     alert("Delete pressed!");
 });
