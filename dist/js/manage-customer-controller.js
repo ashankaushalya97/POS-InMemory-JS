@@ -79,29 +79,29 @@ $("#add-customer").click(function () {
         alert("You have empty fields!");
         return;
     }
-    // if (!customerName.match("^[A-Za-z][A-Za-z. ]+$")) {
-    //     alert("invalid customer name");
-    //     $("#customer-name").addClass("invalid");
-    //     $("#customer-name").select();
-    //     validate = false;
-    //     return;
-    // }
-    // if (!validate) {
-    //     return;
-    // }
-    // customers.push({
-    //     id: customerId,
-    //     name: customerName,
-    //     address: customerAddress
-    // });
-    // // loadCustomers(0);
-    //
-    // if (customers.length <= 5) {
-    //     loadCustomers(0);
-    // }
-    // intializePagination();
-    // alert("Mission successfull");
-    // $("#customer-id,#customer-name, #customer-address ").val("");
+    if (!customerName.match("^[A-Za-z][A-Za-z. ]+$")) {
+        alert("invalid customer name");
+        $("#customer-name").addClass("invalid");
+        $("#customer-name").select();
+        validate = false;
+        return;
+    }
+    if (!validate) {
+        return;
+    }
+    customers.push({
+        id: customerId,
+        name: customerName,
+        address: customerAddress
+    });
+    // loadCustomers(0);
+
+    if (customers.length <= 5) {
+        loadCustomers(0);
+    }
+    intializePagination();
+    alert("Mission successfull");
+    $("#customer-id,#customer-name, #customer-address ").val("");
 
 });
 
