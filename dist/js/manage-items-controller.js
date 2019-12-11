@@ -122,10 +122,10 @@ $("#btn-clear").click(function () {
 });
 
 $("#tbl-items tbody").on('click','tr td i ',function () {
-    // console.log($(this).parent().parent().children().first().text());
+    console.log($(this).parent().parent().children().first().text());
     var id = $(this).parent().parent().children().first().text();
     for (var i=0;i<items.length;i++){
-        if(id==customers[i].id){
+        if(id==items[i].code){
             console.log("======================");
             console.log(id);
             console.log(items[i].code);
