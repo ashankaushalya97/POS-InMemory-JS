@@ -10,3 +10,25 @@ var customers = [
         address:"Mathugama"
     }
 ];
+
+var items = [
+    {
+        code:"I001",
+        description:"Macbook Air 2019",
+        qtyOnHand:5,
+        unitPrice:197000
+    },
+    {
+        code:"I002",
+        description:"MSI GF63",
+        qtyOnHand:2,
+        unitPrice:145000
+    },
+    {
+        code:"I003",
+        description:"Acer E5 576G",
+        qtyOnHand:3,
+        unitPrice:13500
+    }
+
+];

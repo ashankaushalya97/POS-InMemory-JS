@@ -1,29 +1,30 @@
 $(function () {
-    loadCustomers(0);
+    loadItems(0);
     intializePagination();
 });
 
-function loadCustomers(page) {
+function loadItems(page) {
     var startingIndex = page * 5;
-    $("#tbl-students tbody tr").remove();
+    $("#tbl-items tbody tr").remove();
 
     for (var i = startingIndex; i < startingIndex + 5; i++) {
-        if (i > customers.length-1) {
+        if (i > items.length-1) {
             break;
         }
         var html = '<tr>' +
-            '<td>' + customers[i].id + '</td>' +
-            '<td>' + customers[i].name + '</td>' +
-            '<td>' + customers[i].address + '</td>' +
+            '<td>' + items[i].code + '</td>' +
+            '<td>' + items[i].description + '</td>' +
+            '<td>' + items[i].qtyOnHand + '</td>' +
+            '<td>' + items[i].unitPrice + '</td>' +
             '<td>' + '<i class="fa fa-trash" aria-hidden="true"></i>' + '</td>' +
             '</tr>';
-        $("#tbl-students tbody").append(html);
+        $("#tbl-items tbody").append(html);
     }
 }
 
 function intializePagination() {
 
-    var totalPages = parseInt(customers.length / 5 + (((customers.length % 5) != 0 ? 1 : 0)));
+    var totalPages = parseInt(items.length / 5 + (((items.length % 5) != 0 ? 1 : 0)));
     // console.log("total pages : " + totalPages);
     $(".page-item").remove();
 
@@ -38,43 +39,46 @@ function intializePagination() {
     $(".card-footer .pagination").html(html);
 
     $(".card-footer .pagination .page-item:first-child").click(function () {
-        loadCustomers(0);
+        loadItems(0);
     });
 
     $(".card-footer .pagination .page-item:last-child").click(function () {
-        loadCustomers(totalPages - 1);
+        loadItems(totalPages - 1);
     });
 
     $(".card-footer .pagination .page-item").click(function () {
         var number = parseInt($(this).find("a").text());
         if (number) {
-            loadCustomers(number - 1);
+            loadItems(number - 1);
         }
     })
 
 
 }
 
-$("#customer-id , #customer-name , #customer-address").keyup(function () {
+$("#item-code,#item-description,#qty,#unitPrice").keyup(function () {
     $(this).removeClass("invalid");
 });
 
-$("#add-customer").click(function () {
+$("#add-item").click(function () {
 
-    var customerId = $("#customer-id").val();
-    var customerName = $("#customer-name").val();
-    var customerAddress = $("#customer-address").val();
+    var itemCode = $("#item-code").val();
+    var itemDescription = $("#item-description").val();
+    var qty = $("#qty").val();
+    var unitPrice = $("#unitPrice").val();
 
-    console.log(customerId);
-    console.log(customerName);
-    console.log(customerAddress);
+    console.log(itemCode);
+    console.log(itemDescription);
+    console.log(qty);
+    console.log(unitPrice);
 
     var validate = true;
-    if (customerAddress.trim().length == 0 || customerId.trim().length == 0 || customerName.trim().length == 0) {
+    if (itemCode.trim().length == 0 || itemDescription.trim().length == 0 || qty.trim().length == 0 || unitPrice.trim().length==0 ) {
         alert("You have empty fields!");
-        $("#customer-id").addClass("invalid");
-        $("#customer-name").addClass("invalid");
-        $("#customer-address").addClass("invalid");
+        $("#item-code").addClass("invalid");
+        $("#item-description").addClass("invalid");
+        $("#qty").addClass("invalid");
+        $("#unitPrice").addClass("invalid");
         validate = false;
         return;
     }
