@@ -4,3 +4,11 @@
 .invalid {
     border: 1px solid red !important;
 }
+
+table tbody tr {
+    cursor: pointer;
+}
+
+table tbody tr td i:hover {
+    color: red;
+}

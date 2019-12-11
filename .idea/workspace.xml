@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c6418c9-b077-4c1a-afc7-04abe3b3dc2d" name="Default Changelist" comment="" />
+    <list default="true" id="8c6418c9-b077-4c1a-afc7-04abe3b3dc2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/manage-customer.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/manage-customer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/manage-customer-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/manage-customer-controller.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,13 +25,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Un0rmDHmOeXryxEwhf6cUlryra" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/dist/js" />
@@ -69,7 +80,7 @@
       <workItem from="1575977253577" duration="7410000" />
       <workItem from="1576044682266" duration="120000" />
       <workItem from="1576044961831" duration="237000" />
-      <workItem from="1576045352697" duration="8119000" />
+      <workItem from="1576045352697" duration="14517000" />
     </task>
     <servers />
   </component>
@@ -81,5 +92,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="370" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1576048202810" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1576068022555">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1576068022555" />
   </component>
 </project>
