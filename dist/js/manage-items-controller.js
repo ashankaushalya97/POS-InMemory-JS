@@ -1,6 +1,7 @@
 $(function () {
     loadItems(0);
     intializePagination();
+    generateId();
 });
 
 function loadItems(page) {
@@ -20,6 +21,26 @@ function loadItems(page) {
             '</tr>';
         $("#tbl-items tbody").append(html);
     }
+}
+function generateId() {
+    var id = 0;
+
+    if(items.length>0){
+        id = parseInt(items[items.length-1].code.substr(3,2));
+        console.log(id);;
+    }
+    var oid = null;
+    if(0<id && id<10){
+        oid = "I00"+(id+1);
+        console.log(oid);
+    }else if(10<id && id<100){
+        oid = "I0"+(id+1);
+        console.log(oid);
+    }else if(100<id && id<1000){
+        oid = "I"+(id+1);
+        console.log(oid);
+    }
+    $("#item-code").val(oid);
 }
 
 function intializePagination() {

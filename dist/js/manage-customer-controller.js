@@ -1,6 +1,7 @@
 $(function () {
     loadCustomers(0);
     intializePagination();
+    generateId();
 });
 
 function loadCustomers(page) {
@@ -19,6 +20,26 @@ function loadCustomers(page) {
             '</tr>';
         $("#tbl-students tbody").append(html);
     }
+}
+function generateId() {
+    var id = 0;
+
+    if(customers.length>0){
+        id = parseInt(customers[customers.length-1].id.substr(3,2));
+        console.log(id);;
+    }
+    var oid = null;
+    if(0<id && id<10){
+        oid = "C00"+(id+1);
+        console.log(oid);
+    }else if(10<id && id<100){
+        oid = "C0"+(id+1);
+        console.log(oid);
+    }else if(100<id && id<1000){
+        oid = "C"+(id+1);
+        console.log(oid);
+    }
+    $("#customer-id").val(oid);
 }
 
 function intializePagination() {
