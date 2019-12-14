@@ -83,3 +83,51 @@ $("select#cmbItem").change(function () {
 
 });
 
+$("#add-cart").click(function () {
+    var itemCode = $("select#cmbItem").change().children("option:selected").text();
+    var customerId = $("select#cmbCustomer").change().children("option:selected").text();
+    var customerName = $("#customer-name-order").val();
+    var orderId = $("#order-id").val();
+    var date = $("#order-date").val();
+    var qty = $("#qty-order").val();
+    var qtyOnHand = $("#qtyOnHand-order").val();
+    var unitPrice = $("#unitPrice").val();
+
+
+    var validate = true;
+    if (qty==null || unitPrice== null || customerName.trim().length == 0) {
+        alert("You have empty fields!");
+        $("#qty-order").addClass("invalid");
+        $("#qty-order").select();
+        validate = false;
+        return;
+    }
+    if (!qty.match("^[0-9]+$")) {
+        alert("invalid qty");
+        $("#qty-order").addClass("invalid");
+        $("#qty-order").select();
+        validate = false;
+        return;
+    }
+    for(var i=0;i<items.length;i++){
+        if (items[i].code==itemCode) {
+            console.log("Item found!");
+            if (items[i].qtyOnHand==0 || items[i].qtyOnHand<qty){
+                alert("Out of stock!!");
+                $("#qty-order").addClass("invalid");
+                $("#qty-order").select();
+                validate = false;
+                return;
+            }
+        }
+    }
+    if (!validate){
+        return;
+    }
+
+})
+$("#qty-order").keyup(function () {
+    $(this).removeClass("invalid");
+})
+
+
