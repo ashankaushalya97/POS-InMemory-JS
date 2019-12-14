@@ -123,12 +123,12 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="order-id">Order ID</label>
-                                    <input type="text" class="form-control" id="order-id"
+                                    <input type="text" class="form-control" readonly="readonly" id="order-id"
                                            placeholder="Enter Order ID">
                                 </div>
                                 <div class="form-group">
                                     <label for="order-date">Order Date</label>
-                                    <input type="text" class="form-control" id="order-date">
+                                    <input type="text" readonly="readonly" class="form-control" id="order-date">
                                 </div>
 
                                 <div class="form-group">
@@ -143,7 +143,7 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control dropdown-menu-lg-right" id="" placeholder="Customer Name">
+                                            <input type="text" class="form-control dropdown-menu-lg-right" readonly="readonly" id="customer-name-order" placeholder="Customer Name">
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@
                                     <label for="order-id">Item</label>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <select class="form-control" >
+                                            <select class="form-control" id="cmbItem" >
                                                 <option value="+47">Select Item ID</option>
                                                 <option value="+47">Acer Aspire</option>
                                                 <option value="+46">Apple Macbook Pro</option>
@@ -159,17 +159,17 @@
                                             </select>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control dropdown-menu-lg-right"  placeholder="Item Description">
+                                            <input type="text" class="form-control dropdown-menu-lg-right" id="item-desc-order" readonly="readonly"  placeholder="Item Description">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control dropdown-menu-lg-left"  placeholder="Qty On Hand">
+                                            <input type="text" class="form-control dropdown-menu-lg-left" id="qtyOnHand-order" readonly="readonly" placeholder="Qty On Hand">
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control dropdown-menu-lg-right"  placeholder="Unit Price">
+                                            <input type="text" class="form-control dropdown-menu-lg-right" id="unit-price-order" readonly="readonly"  placeholder="Unit Price">
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
     <strong>Copyright &copy; Ashan Kaushalya.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.0.1
+        <b>Version</b> 1.0.0
     </div>
 </footer>
 
