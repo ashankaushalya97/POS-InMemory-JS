@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Modern POS | Manage Items</title>
+    <title>Modern POS | Placer Order</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="dist/css/manage-customer.css" class="css">
@@ -58,13 +58,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./item.html" class="nav-link active">
+                            <a href="./item.html" class="nav-link ">
                                 <i class="fa fa-database" aria-hidden="true"></i>
                                 <p>Manage Items</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./orders.html" class="nav-link">
+                            <a href="./orders.html" class="nav-link active">
                                 <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                                 <p>Manage Orders</p>
                             </a>
@@ -97,7 +97,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Manage Items</li>
+                        <li class="breadcrumb-item active">Manage Orders</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -115,35 +115,74 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Add Items</h3>
+                            <h3 class="card-title">Place Order</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="item-code">Item Code</label>
-                                    <input type="text" class="form-control" id="item-code"
-                                           placeholder="Enter Item Code">
+                                    <label for="order-id">Order ID</label>
+                                    <input type="text" class="form-control" id="order-id"
+                                           placeholder="Enter Order ID">
                                 </div>
                                 <div class="form-group">
-                                    <label for="item-description">Item Description</label>
-                                    <input type="text" class="form-control" id="item-description" placeholder="Enter Item Description">
+                                    <label for="order-date">Order Date</label>
+                                    <input type="text" class="form-control" id="order-date">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="order-id">Customer</label>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <select class="form-control" id="cmbCustomer" >
+                                                <option value="+47">Select Customer ID</option>
+                                                <option value="+47">Ashan</option>
+                                                <option value="+46">Alisa</option>
+                                                <option value="+45">Leel</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control dropdown-menu-lg-right" id="" placeholder="Customer Name">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="qty">Item Qty</label>
-                                    <input type="text" class="form-control" id="qty" placeholder="Enter Qty">
+                                    <label for="order-id">Item</label>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <select class="form-control" >
+                                                <option value="+47">Select Item ID</option>
+                                                <option value="+47">Acer Aspire</option>
+                                                <option value="+46">Apple Macbook Pro</option>
+                                                <option value="+45">Asus ROG</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control dropdown-menu-lg-right"  placeholder="Item Description">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="unitPrice">Unit Price</label>
-                                    <input type="text" class="form-control" id="unitPrice" placeholder="Enter Unit Price">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control dropdown-menu-lg-left"  placeholder="Qty On Hand">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control dropdown-menu-lg-right"  placeholder="Unit Price">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="unitPrice">Qty</label>
+                                    <input type="text" class="form-control" id="unitPrice" placeholder="Enter Qty">
                                 </div>
 
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="button" id="add-item" class="btn btn-primary">Submit</button>
+                                <button type="button" id="add-item" class="btn btn-primary">Add to cart</button>
                                 <button type="button" id="btn-clear" class="btn btn-warning">Clear</button>
                             </div>
                         </form>
@@ -154,7 +193,7 @@
                     <!-- general form elements disabled -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">List of items</h3>
+                            <h3 class="card-title">List of orders</h3>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered table-hover" id="tbl-items">
@@ -162,16 +201,18 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Description</th>
-                                    <th>Qty on hand</th>
+                                    <th>Qty</th>
                                     <th>Unit Price</th>
+                                    <th>Total</th>
                                     <th style="width: 40px"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>I001</td>
+                                    <td>OD001</td>
                                     <td>Macbook Pro 13</td>
-                                    <td>5</td>
+                                    <td>1</td>
+                                    <td>175000</td>
                                     <td>175000</td>
                                     <td><i class="fa fa-trash" aria-hidden="true"></i></td>
                                 </tr>
@@ -234,7 +275,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/database.js"></script>
-<script src="dist/js/manage-items-controller.js"></script>
+<script src="dist/js/place-order-controller.js"></script>
 <!--<script src="js/home-controller.js"></script>-->
 </body>
 </html>

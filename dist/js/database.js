@@ -32,3 +32,14 @@ var items = [
     }
 
 ];
+
+var orders = [
+    {
+        id:"OD001",
+        description: "Macbook Air",
+        qty: 1,
+        unitPrice:175000,
+        total: 175000
+    }
+
+];
