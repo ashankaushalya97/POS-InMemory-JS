@@ -85,7 +85,7 @@ $("#add-item").click(function () {
 
     var itemCode = $("#item-code").val();
     var itemDescription = $("#item-description").val();
-    var qty = $("#qty").val();
+    var qty = ($("#qty").val());
     var unitPrice = $("#unitPrice").val();
 
     console.log(itemCode);
