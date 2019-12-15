@@ -7,18 +7,19 @@ $(function () {
 function generateId() {
     var id = 0;
 
-    if (orders.length > 0) {
-        id = parseInt(orders[orders.length - 1].id.substr(3, 2));
+    if (order2.length > 0) {
+        alert("order2");
+        id = parseInt(order2[order2.length- 1].orderId.substr(3, 2));
         // console.log(id);
     }
     var oid = null;
-    if (0 < id && id < 10) {
+    if (0 <= id && id < 10) {
         oid = "OD00" + (id + 1);
         // console.log(oid);
-    } else if (10 < id && id < 100) {
+    } else if (10 <= id && id < 100) {
         oid = "OD0" + (id + 1);
         // console.log(oid);
-    } else if (100 < id && id < 1000) {
+    } else if (100 <= id && id < 1000) {
         oid = "OD" + (id + 1);
         // console.log(oid);
     }
@@ -89,6 +90,7 @@ $("#add-cart").click(function () {
     var itemCode = $("select#cmbItem").change().children("option:selected").text();
     var customerId = $("select#cmbCustomer").change().children("option:selected").text();
     var customerName = $("#customer-name-order").val();
+    var itemDesc = $("#item-desc-order").val();
     var orderId = $("#order-id").val();
     var date = $("#order-date").val();
     var qty = $("#qty-order").val();
@@ -130,11 +132,11 @@ $("#add-cart").click(function () {
     }
     var total = parseInt(qty)*parseInt(unitPrice);
 
-    $("#tbl-order tbody tr").remove();
+    // $("#tbl-order tbody tr").remove();
 
     var html = "<tr>\n" +
         "<td>"+orderId+"</td>\n" +
-        "<td>"+date+"</td>\n" +
+        "<td>"+itemDesc+"</td>\n" +
         "<td>"+qty+"</td>\n" +
         "<td>"+unitPrice+"</td>\n" +
         "<td>"+total+"</td>\n" +
@@ -142,15 +144,33 @@ $("#add-cart").click(function () {
         "</tr>";
 
     $("#tbl-order tbody").append(html);
+    temp.push({
+        orderId: orderId,
+        date: date,
+        customerId: customerId,
+        itemCode:itemCode,
+        qty:qty,
+        unitPrice:unitPrice
+    });
+
+    //update qty on hand
+    for(var i=0;i<itemCode.length;i++){
+        if(items[i].code===itemCode){
+            var newQty = (parseInt(qtyOnHand)-parseInt(qty));
+            items[i].qtyOnHand=(newQty);
+            break;
+        }
+    }
 
     //clear fields
-    $("#cmbCustomer").removeAttr('disabled');
     $("#place-order").removeAttr('disabled');
-    $("#cmbCustomer").val("default");
-    $("#customer-name-order").val("");
+    // $("#cmbCustomer").removeAttr('disabled');
+    // $("#cmbCustomer").val("default");
+    // $("#customer-name-order").val("");
     clear();
 
 });
+
 $("#qty-order").keyup(function () {
     $(this).removeClass("invalid");
 });
@@ -166,5 +186,35 @@ function clear(){
     $("#unit-price-order").val("");
     $("#cmbItem").val("default");
 }
+
+$("#place-order").click(function () {
+
+     order2.push({
+        orderId:$("#order-id").val(),
+        date:$("#order-date").val(),
+        customerId:$("select#cmbCustomer").change().children("option:selected").text()
+     });
+    for(var i=0;i<temp.length;i++){
+        orderDetails.push({
+            orderId:temp[i].orderId,
+            itemCode:temp[i].itemCode,
+            unitPrice:temp[i].unitPrice,
+            qty:temp[i].qty
+        });
+    }
+
+    console.log(order2);
+    console.log(orderDetails);
+
+    //clear
+    $("#tbl-order tbody tr").remove();
+    $("#place-order").attr('disabled','disabled');
+    $("#cmbCustomer").removeAttr('disabled');
+    $("#cmbCustomer").val("default");
+    $("#customer-name-order").val("");
+    generateId();
+
+
+})
 
 
