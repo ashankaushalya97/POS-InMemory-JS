@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c6418c9-b077-4c1a-afc7-04abe3b3dc2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dist/js/search-order-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/manage-customer.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/manage-customer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/search-order.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +20,8 @@
       <list>
         <option value="TypeScript File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -91,7 +90,7 @@
       <workItem from="1576349069324" duration="17503000" />
       <workItem from="1576470604938" duration="1358000" />
       <workItem from="1576496874890" duration="612000" />
-      <workItem from="1576512790008" duration="1807000" />
+      <workItem from="1576512790008" duration="3142000" />
     </task>
     <servers />
   </component>
