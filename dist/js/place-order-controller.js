@@ -215,6 +215,17 @@ $("#place-order").click(function () {
     generateId();
 
 
-})
+});
+
+$("#tbl-order tbody ").delegate('tr','click',function () {
+    // alert("Table clicked!");
+    var $tds = $(this).find('td');
+    $("#cmbItem").val($tds.eq(0).text());
+    $("#item-description").val($tds.eq(1).text());
+    $("#qty").val($tds.eq(2).text());
+    $("#unitPrice").val($tds.eq(3).text());
+
+    $("#update-item").removeAttr('disabled');
+});
 
 
