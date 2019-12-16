@@ -161,3 +161,41 @@ $("#tbl-items tbody").on('click','tr td i ',function () {
     }
     alert("Delete pressed!");
 });
+
+$("#tbl-items tbody ").delegate('tr','click',function () {
+    // alert("Table clicked!");
+    var $tds = $(this).find('td');
+    $("#item-code").val($tds.eq(0).text());
+    $("#item-description").val($tds.eq(1).text());
+    $("#qty").val($tds.eq(2).text());
+    $("#unitPrice").val($tds.eq(3).text());
+
+    $("#update-item").removeAttr('disabled');
+});
+
+$("#add-new").click(function () {
+    clearNew();
+});
+
+$("#update-item").click(function () {
+    var id = $("#item-code").val();
+
+    for (var i = 0; i <items.length ; i++) {
+        if(id===items[i].code){
+            items[i].description=$("#item-description").val();
+            items[i].qtyOnHand=$("#qty").val();
+            items[i].unitPrice=$("#unitPrice").val();
+            break;
+        }
+    }
+    clearNew();
+    loadItems(0);
+});
+
+function clearNew() {
+    $("#item-code,#item-description, #unitPrice,#qty ").val("");
+    $("#item-code,#item-description, #unitPrice,#qty").removeClass("invalid");
+    generateId();
+    $("#update-item").attr('disabled','disabled');
+}
+

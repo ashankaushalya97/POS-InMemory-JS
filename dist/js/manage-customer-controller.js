@@ -142,9 +142,7 @@ $("#tbl-students tbody").on('click','tr td i ',function () {
     alert("Delete pressed!");
 });
 
-$("#tbl-students tbody").click(function () {
-    // alert("Table clicked!");
-});
+
 $("#tbl-students tbody ").delegate('tr','click',function () {
     // alert("Table clicked!");
     var $tds = $(this).find('td');
@@ -178,4 +176,5 @@ function clearNew() {
     generateId();
     $("#update-customer").attr('disabled','disabled');
 }
+
 
