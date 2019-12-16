@@ -26,18 +26,14 @@ function generateId() {
 
     if(customers.length>0){
         id = parseInt(customers[customers.length-1].id.substr(3,2));
-        console.log(id);;
     }
     var oid = null;
     if(0<id && id<10){
         oid = "C00"+(id+1);
-        console.log(oid);
     }else if(10<id && id<100){
         oid = "C0"+(id+1);
-        console.log(oid);
     }else if(100<id && id<1000){
         oid = "C"+(id+1);
-        console.log(oid);
     }
     $("#customer-id").val(oid);
 }
@@ -86,10 +82,6 @@ $("#add-customer").click(function () {
     var customerName = $("#customer-name").val();
     var customerAddress = $("#customer-address").val();
 
-    console.log(customerId);
-    console.log(customerName);
-    console.log(customerAddress);
-
     var validate = true;
     if (customerAddress.trim().length == 0 || customerId.trim().length == 0 || customerName.trim().length == 0) {
         $("#customer-id").addClass("invalid");
@@ -136,9 +128,7 @@ $("#tbl-students tbody").on('click','tr td i ',function () {
     var id = $(this).parent().parent().children().first().text();
     for (var i=0;i<customers.length;i++){
         if(id==customers[i].id){
-            console.log("======================");
-            console.log(id);
-            console.log(customers[i].id);
+
             customers.splice(i,1);
         }
     }
@@ -149,4 +139,15 @@ $("#tbl-students tbody").on('click','tr td i ',function () {
         loadCustomers(0);
     }
     alert("Delete pressed!");
+});
+
+$("#tbl-students tbody").click(function () {
+    // alert("Table clicked!");
+});
+$("#tbl-students tbody ").delegate('tr','click',function () {
+    // alert("Table clicked!");
+    var $tds = $(this).find('td');
+    $("#customer-id").val($tds.eq(0).text());
+    $("#customer-name").val($tds.eq(1).text());
+    $("#customer-address").val($tds.eq(2).text());
 });
