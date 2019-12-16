@@ -121,6 +121,7 @@ $("#add-customer").click(function () {
 $("#btn-clear").click(function () {
     $("#customer-id,#customer-name, #customer-address ").val("");
     $("#customer-id , #customer-name , #customer-address").removeClass("invalid");
+    $("#update-customer").attr('disabled','disabled');
 });
 
 $("#tbl-students tbody").on('click','tr td i ',function () {
@@ -150,4 +151,31 @@ $("#tbl-students tbody ").delegate('tr','click',function () {
     $("#customer-id").val($tds.eq(0).text());
     $("#customer-name").val($tds.eq(1).text());
     $("#customer-address").val($tds.eq(2).text());
+    $("#update-customer").removeAttr('disabled');
 });
+
+$("#add-new").click(function () {
+    clearNew();
+});
+
+$("#update-customer").click(function () {
+    var id = $("#customer-id").val();
+
+    for (var i = 0; i <customers.length ; i++) {
+        if(id===customers[i].id){
+            customers[i].name=$("#customer-name").val();
+            customers[i].address=$("#customer-address").val();
+            break;
+        }
+    }
+    clearNew();
+    loadCustomers(0);
+});
+
+function clearNew() {
+    $("#customer-id,#customer-name, #customer-address ").val("");
+    $("#customer-id , #customer-name , #customer-address").removeClass("invalid");
+    generateId();
+    $("#update-customer").attr('disabled','disabled');
+}
+
