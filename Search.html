@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Modern POS | Manage Customers</title>
+    <title>Modern POS | Search Orders</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="dist/css/manage-customer.css" class="css">
@@ -35,7 +35,7 @@
         <a href="index3.html" class="brand-link">
             <img src="dist/img/profile.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">Modern POS</span>
+            <span class="brand-text font-weight-bold"> Modern POS</span>
         </a>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./customer.html" class="nav-link active">
+                            <a href="./customer.html" class="nav-link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <p>Manage Customers</p>
                             </a>
@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./Search.html" class="nav-link">
+                            <a href="./Search.html" class="nav-link active">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>Search Orders</p>
                             </a>
@@ -92,12 +92,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><i class="fa fa-users" aria-hidden="true"></i> Manage Customers</h1>
+                    <h1 class="m-0 text-dark"><i class="fa fa-search" aria-hidden="true"></i> Search Orders</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Manage Customers</li>
+                        <li class="breadcrumb-item active">Search Orders</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -109,87 +109,31 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
 
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Add Customers</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="customer-id">Customer ID</label>
-                                    <input type="text" class="form-control" readonly="readonly" id="customer-id"
-                                           placeholder="Enter Customer ID">
-                                </div>
-                                <div class="form-group">
-                                    <label for="customer-name">Customer Name</label>
-                                    <input type="text" class="form-control" id="customer-name" placeholder="Enter Customer Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="customer-address">Customer Address</label>
-                                    <input type="text" class="form-control" id="customer-address" placeholder="Enter Customer Address">
-                                </div>
-
-                            </div>
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="button" id="add-customer" class="btn btn-primary">Submit</button>
-                                <button type="button" id="btn-clear" class="btn btn-warning">Clear</button>
-                            </div>
-                        </form>
-                    </div>
-                </div><!--left-column-->
                 <!-- right column -->
-                <div class="col-md-6">
+                <div class="col-md-9" id="tbl-searchCol">
                     <!-- general form elements disabled -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">List of customers</h3>
+                            <h3 class="card-title">List of orders</h3>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered table-hover" id="tbl-students">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <br>
+                            <table class="table table-bordered table-hover" id="tbl-search">
                                 <thead>
                                 <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th style="width: 40px"></th>
+                                    <th>Order ID</th>
+                                    <th>Order Date</th>
+                                    <th>Customer ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Total</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>C001</td>
-                                    <td>Leel</td>
-                                    <td>Mathugama</td>
-                                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>C002</td>
-                                    <td>Alisa</td>
-                                    <td>Pinwatta</td>
-                                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>C003</td>
-                                    <td>Chamalki</td>
-                                    <td>Matara</td>
-                                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>C004</td>
-                                    <td>Ashan</td>
-                                    <td>Udugampola</td>
-                                    <td><i class="fa fa-trash" aria-hidden="true"></i></td>
-                                </tr>
-
                                 </tbody>
                             </table>
+
                         </div>
                         <div class="card-footer clearfix">
                             <ul class="pagination pagination-sm m-0 page-no">
@@ -244,9 +188,9 @@
 <script src="dist/js/adminlte.js"></script>
 
 <!-- AdminLTE for demo purposes -->
-<!--<script src="dist/js/demo.js"></script>-->
+<script src="dist/js/demo.js"></script>
 <script src="dist/js/database.js"></script>
-<script src="dist/js/manage-customer-controller.js"></script>
+<script src="dist/js/manage-items-controller.js"></script>
 <!--<script src="js/home-controller.js"></script>-->
 </body>
 </html>
